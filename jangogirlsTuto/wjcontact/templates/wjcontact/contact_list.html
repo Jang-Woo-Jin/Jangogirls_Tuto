@@ -1,0 +1,24 @@
+{% extends 'wjcontact/base.html' %}
+
+{% block content %}
+    <div class="control_line">
+        Search : <input type:"text" >
+        <a href="{% url 'wjcontact_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+    <table>
+    <tr>
+        <th>&nbsp&nbsp&nbsp</th>
+        <th>name</th>
+        <th>phone number</th>
+        <th>e-mail address</th>
+    </tr>          
+    {% for contact in contacts %}
+    <tr>
+        <td>{{ contact.pk }}</td>
+        <td><a href="{% url 'wjcontact_detail' pk=contact.pk %}">{{ contact.name }}</a></td>
+        <td>{{ contact.phone_number|linebreaksbr }}</td>
+        <td>{{ contact.e_mail_address }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock%}    
