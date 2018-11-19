@@ -2,9 +2,11 @@
 
 {% block content %}
     <div class="control_line">
-        <input class="research_text" type:"text" value="Please insert name.">
-        <input class="search btn" type="button" value="Search">
-        <a href="{% url 'wjcontact_new' %}"><input class="btn" type="button" value="Add"></a>
+        <form action="" method="get">
+            <input id="search_text" class="search_text" type="text" name="search" value="{{ search }}">
+            <input class="search btn" type="submit" value="Search">
+            <a href="{% url 'wjcontact_new' %}"><input class="btn add" type="button" value="Add"></a>
+        </form>
     </div>
     <table>
     <tr>
