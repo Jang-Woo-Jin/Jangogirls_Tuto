@@ -10,7 +10,6 @@
     </div>
     <table>
     <tr>
-        <th>&nbsp&nbsp&nbsp</th>
         <th>Name</th>
         <th>Phone number</th>
         <th>E-mail address</th>
@@ -19,7 +18,6 @@
     </tr>          
     {% for contact in contacts %}
     <tr>
-        <td>{{ contact.pk }}</td>
         <td><a href="{% url 'wjcontact_detail' pk=contact.pk %}">{{ contact.name }}</a></td>
         <td>{{ contact.phone_number|linebreaksbr }}</td>
         <td>{{ contact.e_mail_address }}</td>
