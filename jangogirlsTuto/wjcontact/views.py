@@ -19,7 +19,7 @@ def contact_new(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             contact = form.save(commit=False)
-            contact.name = request.user
+            contact.author = request.user
             contact.created_date = timezone.now()
             contact.save()
             return redirect('wjcontact_detail', pk=contact.pk)
@@ -30,7 +30,7 @@ def contact_new(request):
 def contact_edit(request, pk):
     contact = get_object_or_404(WJContact, pk=pk)
     if request.method == "POST":
-        form = ContactForm(instance=contact)
+        form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
             contact = form.save(commit=False)
             contact.author = request.user
@@ -39,4 +39,10 @@ def contact_edit(request, pk):
             return redirect('wjcontact_detail', pk=contact.pk)
     else:
         form = ContactForm(instance=contact)
-    return render(request, 'wjcontact/contact_list.html', {'form': form})
+    return render(request, 'wjcontact/contact_edit.html', {'form': form})
+
+def contact_delete(request, pk):
+    contact = get_object_or_404(WJContact, pk=pk)
+    contact.delete()
+    return redirect('wjcontact_list')
+ 

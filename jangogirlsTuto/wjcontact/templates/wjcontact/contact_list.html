@@ -8,9 +8,11 @@
     <table>
     <tr>
         <th>&nbsp&nbsp&nbsp</th>
-        <th>name</th>
-        <th>phone number</th>
-        <th>e-mail address</th>
+        <th>Name</th>
+        <th>Phone number</th>
+        <th>E-mail address</th>
+        <th class="blank-edit">
+        <th class="blank">
     </tr>          
     {% for contact in contacts %}
     <tr>
@@ -18,6 +20,8 @@
         <td><a href="{% url 'wjcontact_detail' pk=contact.pk %}">{{ contact.name }}</a></td>
         <td>{{ contact.phone_number|linebreaksbr }}</td>
         <td>{{ contact.e_mail_address }}</td>
+        <td class="blank-edit"><a href="{% url 'wjcontact_detail' pk=contact.pk %}"><input type="button" value="edit"></a></td>
+        <td class="blank"><a href="{% url 'wjcontact_delete' pk=contact.pk %}"><input type="button" value="del"></a></td>
     </tr>
     {% endfor %}
     </table>
