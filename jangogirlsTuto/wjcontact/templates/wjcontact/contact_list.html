@@ -2,8 +2,9 @@
 
 {% block content %}
     <div class="control_line">
-        Search : <input type:"text" >
-        <a href="{% url 'wjcontact_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <input type:"text" >
+        <input class="search btn" type="button" value="Search">
+        <a href="{% url 'wjcontact_new' %}"><input type="button" value="Add"></a>
     </div>
     <table>
     <tr>
@@ -20,8 +21,8 @@
         <td><a href="{% url 'wjcontact_detail' pk=contact.pk %}">{{ contact.name }}</a></td>
         <td>{{ contact.phone_number|linebreaksbr }}</td>
         <td>{{ contact.e_mail_address }}</td>
-        <td class="blank-edit"><a href="{% url 'wjcontact_detail' pk=contact.pk %}"><input type="button" value="edit"></a></td>
-        <td class="blank"><a href="{% url 'wjcontact_delete' pk=contact.pk %}"><input type="button" value="del"></a></td>
+        <td class="blank-edit btn"><a href="{% url 'wjcontact_detail' pk=contact.pk %}"><input type="button" value="edit"></a></td>
+        <td class="blank btn"><a href="{% url 'wjcontact_delete' pk=contact.pk %}"><input type="button" value="del"></a></td>
     </tr>
     {% endfor %}
     </table>
