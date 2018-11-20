@@ -21,7 +21,7 @@
         <td><a href="{% url 'wjcontact_detail' pk=contact.pk %}">{{ contact.name }}</a></td>
         <td>{{ contact.phone_number|linebreaksbr }}</td>
         <td>{{ contact.e_mail_address }}</td>
-        <td class="blank btn"><a href="{% url 'wjcontact_detail' pk=contact.pk %}"><input type="button" value="edit"></a></td>
+        <td class="blank btn"><a href="{% url 'wjcontact_edit' pk=contact.pk %}"><input type="button" value="edit"></a></td>
         <td class="blank btn"><a href="{% url 'wjcontact_delete' pk=contact.pk %}"><input type="button" value="del"></a></td>
     </tr>
     {% endfor %}
