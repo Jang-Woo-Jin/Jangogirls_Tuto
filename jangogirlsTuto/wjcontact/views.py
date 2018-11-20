@@ -7,11 +7,11 @@ from .models import WJContact
 
 # Create your views here.
 def contact_list(request):
-    contacts = WJContact.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
+    contacts = WJContact.objects.filter(created_date__lte=timezone.now()).order_by('name')
         
     search = request.GET.get('search','')
     if search:
-        contacts =contacts.filter(name__icontains=search).order_by('created_date')
+        contacts =contacts.filter(name__icontains=search).order_by('name')
         return render(request, 'wjcontact/contact_list.html', {'contacts':contacts})
     else:
         return render(request, 'wjcontact/contact_list.html', {'contacts':contacts})
